@@ -34,4 +34,5 @@ func worker(r Request) (ParserResult, error) {
 	// TODO 1、需要实现fetch爬取到种子的html内容
 	// TODO 2、需要实现parser解析fetch的html内容
 	// TODO 3、返回我们解析结果给引擎做后续处理
+	return ParserResult{},nil
 }
