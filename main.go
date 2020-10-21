@@ -1,6 +1,9 @@
 package main
 
-import "go-spider/engine"
+import (
+	"go-spider/engine"
+	"go-spider/parser/pilishen"
+)
 
 func main() {
 	// 初始化引擎
@@ -8,6 +11,6 @@ func main() {
 	// 启动
 	e.Run(engine.Request{
 		Url:        "https://www.pilishen.com/posts",
-		ParserFunc: nil,
+		ParserFunc: pilishen.Parser,
 	})
 }
