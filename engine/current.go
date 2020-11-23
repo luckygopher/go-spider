@@ -24,6 +24,8 @@ func (c *CurrentEngine) Run(seeds ...Request) {
 	for _, seed := range seeds {
 		requests = append(requests, seed)
 	}
+	// 声明一个任务计数,方便确认执行任务数
+	var num int
 	// for循环pop队列，直到队列为空
 	for len(requests) > 0 {
 		// 取出一个种子
@@ -36,9 +38,10 @@ func (c *CurrentEngine) Run(seeds ...Request) {
 			continue
 		}
 		// 处理任务返回的数据
-		fmt.Printf("parser result data：%v", parserResult.Data)
+		fmt.Printf("%d:parser result data：%v\n", num, parserResult.Data)
 		// 将探索到的 seed 添加到队列中继续处理
 		requests = append(requests, parserResult.Requests...)
+		num++
 	}
 }
 

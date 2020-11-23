@@ -11,3 +11,8 @@ type ParserResult struct {
 	Requests []Request
 	Data     []interface{}
 }
+
+// 创建一个空的解析器
+func EmptyParser(body []byte) ParserResult {
+	return ParserResult{}
+}
