@@ -7,7 +7,8 @@ import (
 	"strings"
 )
 
-func Parser(body []byte) engine.ParserResult {
+// 列表解析器
+func ListParser(body []byte) engine.ParserResult {
 	// 初始化返回的解析结果
 	var result engine.ParserResult
 	// 使用 xpath 获取数据
@@ -27,7 +28,7 @@ func Parser(body []byte) engine.ParserResult {
 		// 返回链接
 		result.Requests = append(result.Requests, engine.Request{
 			Url:        cardUrl,
-			ParserFunc: engine.EmptyParser,
+			ParserFunc: ArticleParser,
 		})
 	}
 	// 返回解析结果

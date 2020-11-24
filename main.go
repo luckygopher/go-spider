@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"go-spider/engine"
 	"go-spider/parser/pilishen"
 )
@@ -8,9 +9,13 @@ import (
 func main() {
 	// 初始化引擎
 	e := engine.NewCurrentEngine()
+	var seeds []engine.Request
+	for i := 1; i < 9; i++ {
+		seeds = append(seeds, engine.Request{
+			Url:        fmt.Sprintf("https://www.pilishen.com/posts?posts=%d", i),
+			ParserFunc: pilishen.ListParser,
+		})
+	}
 	// 启动
-	e.Run(engine.Request{
-		Url:        "https://www.pilishen.com/posts",
-		ParserFunc: pilishen.Parser,
-	})
+	e.Run(seeds...)
 }

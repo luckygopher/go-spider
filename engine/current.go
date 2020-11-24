@@ -37,8 +37,8 @@ func (c *CurrentEngine) Run(seeds ...Request) {
 		if err != nil {
 			continue
 		}
-		// 处理任务返回的数据
-		fmt.Printf("%d:parser result data：%v\n", num, parserResult.Data)
+		// TODO:处理任务返回的数据
+		fmt.Printf("%d:parser result data：%+v\n", num, parserResult.Data)
 		// 将探索到的 seed 添加到队列中继续处理
 		requests = append(requests, parserResult.Requests...)
 		num++
